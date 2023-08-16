@@ -13,14 +13,30 @@ module pad(pad_diameter, pad_thickness) {
     sphere(d=pad_diameter, $fn=10);
 }
 
-module dome(dome_diameter, dome_height, graft_hole_width, graft_hole_height) {
+module dome_reinforcement(dome_diameter, thickness) {
     difference(){
-        sphere(d=dome_diameter, $fn=240);
-        sphere(r=dome_diameter/2-1, $fn=240);
+        resize(newsize=[thickness, 0, 0])
+            sphere(r=dome_diameter/2-1, $fn=60);
+        translate([-dome_diameter/2, -dome_diameter/2, -dome_diameter/2])
+        cube([dome_diameter, dome_diameter, dome_diameter/1.3]);
+        }
+}
+
+module dome(dome_diameter, dome_height, graft_hole_width, graft_hole_height, reinforcements_thickness) {
+    difference(){
+        sphere(d=dome_diameter, $fn=60);
+        sphere(r=dome_diameter/2-1, $fn=60);
         translate([-dome_diameter/2, -dome_diameter/2, -dome_diameter])
         cube(dome_diameter);
     }
-
+    dome_reinforcement(dome_diameter, reinforcements_thickness);
+    rotate([0, 0, 90])
+    dome_reinforcement(dome_diameter, reinforcements_thickness);
+    rotate([0, 0, 45])
+    dome_reinforcement(dome_diameter, reinforcements_thickness);
+    rotate([0, 0, 135])
+    dome_reinforcement(dome_diameter, reinforcements_thickness);
+    
     difference(){
         cylinder(h=dome_diameter/2, r=graft_hole_height/2+1, $fn=60);
         translate([-graft_hole_width/2, -graft_hole_height/2, 0])
@@ -33,9 +49,9 @@ module stick(stick_height, stick_radius) {
 }
 
 
-dome(dome_diameter, dome_height, graft_hole_width, graft_hole_height);
-translate([0, 0, dome_diameter/2]
+dome(dome_diameter, dome_height, graft_hole_width, graft_hole_height, 1);
+/*translate([0, 0, dome_diameter/2]
 )
 stick(stick_height, stick_radius);
 translate([0, 0, dome_diameter/2+stick_height+pad_thickness/2])
-pad(pad_diameter, pad_thickness);
+pad(pad_diameter, pad_thickness);*/
