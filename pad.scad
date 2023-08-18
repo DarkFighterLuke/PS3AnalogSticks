@@ -5,7 +5,7 @@ dome_height = 8;
 graft_hole_width = 3;
 graft_hole_height = 4;
 stick_height = 5;
-stick_radius = graft_hole_height/2+1;
+stick_radius = 10/2;
 
 
 module pad(pad_diameter, pad_thickness) {
@@ -50,8 +50,8 @@ module stick(stick_height, stick_radius) {
 
 
 dome(dome_diameter, dome_height, graft_hole_width, graft_hole_height, 1);
-/*translate([0, 0, dome_diameter/2]
+translate([0, 0, dome_diameter/2-1]
 )
 stick(stick_height, stick_radius);
-translate([0, 0, dome_diameter/2+stick_height+pad_thickness/2])
-pad(pad_diameter, pad_thickness);*/
+translate([0, 0, dome_diameter/2+stick_height+pad_thickness/2-2])
+pad(pad_diameter, pad_thickness);
