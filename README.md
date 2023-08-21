@@ -2,7 +2,8 @@
 <img src="https://github.com/DarkFighterLuke/PS3AnalogSticks/blob/master/images/joypad.png?raw=true" alt="whole joypad" title="Whole PS3 analog stick" height=250>
 
 
-A fully customizable analog stick for PS3 and other consoles made with OpenSCAD.
+<p>A fully customizable analog stick for PS3 and other consoles made with OpenSCAD.</p>
+<p>Like it on Thingiverse: https://www.thingiverse.com/thing:6180849.</p>
 
 ## Description
 This is a fully customizable analog stick mainly designed for PS3, but easily adaptable to other similar console joysticks thanks to its parameterizability and modularity.<br>
@@ -19,6 +20,12 @@ Furthermore, the whole analog stick has been divided into parts to make the 3D p
 - `stick_part.scad`: contains the PS3 analog stick middle part (the stick)
 - `pad_lower_half.scad`: contains the lower half of the pad on top of the stick
 - `pad_upper_half.scad`: contains the upper half of the pad on top of the stick
+
+## Print Settings
+Rafts: No<br>
+Supports: Yes, but only for the dome<br>
+Resolution: 0.2mm<br>
+Infill: 20%<br>
 
 ## Images
 <table>
